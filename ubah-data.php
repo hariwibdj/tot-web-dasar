@@ -90,6 +90,7 @@ if ($data === false) {
                         <div class="col-md-12">
                             <div class="mb-3">
                                 <label for="namapemesan" class="form-label">Nama Pemesan</label>
+                                <input type="hidden" name="id" value="<?php echo $baris['id']; ?>" />
                                 <input type="text" class="form-control" id="namapemesan" name="nama"
                                     value="<?=$baris['nama'];?>">
                             </div>

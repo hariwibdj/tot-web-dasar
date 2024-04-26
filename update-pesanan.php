@@ -15,9 +15,10 @@ $hargapaket   = $_POST['hargapaket'];
 $jumlah       = $_POST['jumlah'];
 
 
-
-$sql = "UPDATE tabel_biodata SET " ;
-$update = mysqli_query($sambungan, $sql_insert);
+// nama,nohp,tanggal,durasi,peserta,hargapaket,penginapan,transportasi,makanan,jumlah
+// tanggal = '$tanggal',
+$sql_update = "UPDATE pemesanan SET nama = '$nama', nohp = '$nohp',  durasi ='$durasi', peserta = '$peserta', hargapaket ='$hargapaket',penginapan = '$penginapan',transportasi = '$transportasi',makanan = '$makan', jumlah ='$jumlah' where id = '$id'" ;
+$update = mysqli_query($sambungan, $sql_update);
 if(!$update){
 ?>
 

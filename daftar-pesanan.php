@@ -84,7 +84,8 @@
                             <td><?=$data['makanan'];?></td>
                             <td><?=$data['jumlah'];?></td>
                             <td><a href="ubah-data.php?id=<?=$data['id']; ?>" class="btn btn-primary">ubah</a><a
-                                    href="hapus-data.php?id=<?=$data['id']; ?>" class="btn btn-danger">hapus</a></td>
+                                    href="hapus-data.php?id=<?=$data['id']; ?>" class="btn btn-danger"
+                                    onclick="return confirm('Anda yakin akan menghapus data?')">hapus</a></td>
                         </tr>
                         <?php
                             $no++;
