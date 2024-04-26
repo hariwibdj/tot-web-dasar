@@ -12,6 +12,13 @@ $hargapaket   = $_POST['hargapaket'];
 $jumlah       = $_POST['jumlah'];
 
 
+$new_file = fopen('dbpemesanan.txt', 'a+') or die('Tidak bisa membuka file!');
+ $text = '</br>'.$_POST['nama']."-".$_POST['nohp']."-".$_POST['tanggal']."-".$_POST['durasi']."-".$_POST['peserta']."-".$_POST['penginapan']."-".$_POST['transportasi']."-".$_POST['makanan']."-".$_POST['hargapaket']."-".$_POST['jumlah'];
+ fwrite($new_file, $text);
+ fclose($new_file);
+
+
+
 // $sql_insert = "INSERT INTO pemesanan(nama,nohp,tanggal,duras,peserta,hargapaket,jumlah) VALUES ('$nama','$nohp','$tanggal',$durasi,$peserta,$hargapaket,$jumlah)";
 // $simpan = mysqli_query($sambungan, $sql_insert);
 
@@ -20,6 +27,9 @@ $jumlah       = $_POST['jumlah'];
 
 $sql_insert = "INSERT INTO pemesanan(nama,nohp,tanggal,durasi,peserta,hargapaket,penginapan,transportasi,makanan,jumlah) VALUES ('$nama','$nohp','$tanggal','$durasi','$peserta','$hargapaket','$penginapan','$transportasi','$makan','$jumlah')";
 $simpan = mysqli_query($sambungan, $sql_insert);
+
+ 
+
 if(!$simpan){
     ?>
 <script type="text/javascript">

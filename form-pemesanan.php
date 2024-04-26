@@ -78,7 +78,7 @@
 
                             <div class="mb-3">
                                 <label for="nomorhp" class="form-label">Nomor HP</label>
-                                <input type="text" class="form-control" id="nomorhp" name="nohp">
+                                <input type="number" class="form-control" id="nomorhp" name="nohp">
                             </div>
                             <div class="mb-3">
                                 <label for="tanggalpemesanan" class="form-label">Tanggal Pemesananan</label>
@@ -87,7 +87,7 @@
                             Durasi Perjalanan
                             <div class="input-group mb-3">
 
-                                <input type="text" class="form-control" aria-label="Recipient's username"
+                                <input type="number" class="form-control" aria-label="Recipient's username"
                                     aria-describedby="basic-addon2" name="durasi" id="durasi">
                                 <span class="input-group-text" id="basic-addon2">hari</span>
                             </div>
@@ -95,7 +95,7 @@
                             Jumlah Peserta
                             <div class="input-group mb-3">
 
-                                <input type="text" class="form-control" aria-label="Recipient's username"
+                                <input type="number" class="form-control" aria-label="Recipient's username"
                                     aria-describedby="basic-addon2" name="peserta" id="peserta">
                                 <span class="input-group-text" id="basic-addon2">Orang</span>
                             </div>
@@ -106,31 +106,31 @@
                                 Penginapan
                                 <div class="input-group mb-3">
 
-                                    <input class="form-control" type="text" name="penginapan" id="penginapan">
+                                    <input class="form-control" type="number" name="penginapan" id="penginapan">
 
                                 </div>
                                 Tranportasi
                                 <div class="input-group mb-3">
 
-                                    <input class="form-control" type="text" value="" name="transportasi"
+                                    <input class="form-control" type="number" value="" name="transportasi"
                                         id="transfortasi">
                                 </div>
                                 Makan
                                 <div class="input-group mb-3">
-                                    <input class="form-control" type="text" value="" name="makanan" id="makan">
+                                    <input class="form-control" type="number" value="" name="makanan" id="makan">
 
                                 </div>
                                 Harga Paket
                                 <div class="input-group mb-3">
                                     <span class="input-group-text" id="basic-addon1">Rp</span>
-                                    <input type="text" class="form-control" aria-label="Username"
+                                    <input type="number" class="form-control" aria-label="Username"
                                         aria-describedby="basic-addon1" name="hargapaket" id="hargapaket">
                                 </div>
 
                                 Jumlah Tagihan
                                 <div class="input-group mb-3">
                                     <span class="input-group-text" id="basic-addon1">Rp</span>
-                                    <input type="text" class="form-control" aria-label="Username"
+                                    <input type="number" class="form-control" aria-label="Username"
                                         aria-describedby="basic-addon1" name="jumlah" id="jumlah">
                                 </div>
 
