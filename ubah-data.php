@@ -1,3 +1,20 @@
+<?php
+include 'include/koneksi.php';
+if (isset($_GET['id'])) {
+    $query = "SELECT * FROM pemesanan WHERE id = '$_GET[id]'";
+    $data  = mysqli_query($sambungan, $query);
+	$baris = mysqli_fetch_array($data);
+} else {
+    echo "ID tidak tersedia!<br /><a href='index.php'>Kembali</a>";
+    exit();
+}
+
+if ($data === false) {
+    echo "Data tidak ditemukan!<br /><a href='index.php'>Kembali</a>";
+    exit();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -68,27 +85,31 @@
             <div class="col-md-8 mt-5">
                 <div class="row">
                     <h1>Form Pemesanan Paket Wisata</h1>
-                    <form action="simpan-pesanan.php" method="post">
+                    <form action="update-pesanan.php" method="post">
 
                         <div class="col-md-12">
                             <div class="mb-3">
                                 <label for="namapemesan" class="form-label">Nama Pemesan</label>
-                                <input type="text" class="form-control" id="namapemesan" name="nama">
+                                <input type="text" class="form-control" id="namapemesan" name="nama"
+                                    value="<?=$baris['nama'];?>">
                             </div>
 
                             <div class="mb-3">
                                 <label for="nomorhp" class="form-label">Nomor HP</label>
-                                <input type="text" class="form-control" id="nomorhp" name="nohp">
+                                <input type="text" class="form-control" id="nomorhp" name="nohp"
+                                    value="<?=$baris['nohp'];?>">
                             </div>
                             <div class="mb-3">
                                 <label for="tanggalpemesanan" class="form-label">Tanggal Pemesananan</label>
-                                <input type="date" class="form-control" id="tanggalpemesanan" name="tanggal">
+                                <input type="date" class="form-control" id="tanggalpemesanan" name="tanggal"
+                                    value="<?=$baris['tanggal'];?>">
                             </div>
                             Durasi Perjalanan
                             <div class="input-group mb-3">
 
                                 <input type="text" class="form-control" aria-label="Recipient's username"
-                                    aria-describedby="basic-addon2" name="durasi" id="durasi">
+                                    aria-describedby="basic-addon2" name="durasi" id="durasi"
+                                    value="<?=$baris['durasi'];?>">
                                 <span class="input-group-text" id="basic-addon2">hari</span>
                             </div>
 
@@ -96,7 +117,8 @@
                             <div class="input-group mb-3">
 
                                 <input type="text" class="form-control" aria-label="Recipient's username"
-                                    aria-describedby="basic-addon2" name="peserta" id="peserta">
+                                    aria-describedby="basic-addon2" name="peserta" id="peserta"
+                                    value="<?=$baris['peserta'];?>">
                                 <span class="input-group-text" id="basic-addon2">Orang</span>
                             </div>
 
@@ -106,32 +128,36 @@
                                 Penginapan
                                 <div class="input-group mb-3">
 
-                                    <input class="form-control" type="text" name="penginapan" id="penginapan">
+                                    <input class="form-control" type="text" name="penginapan" id="penginapan"
+                                        value="<?=$baris['penginapan'];?>">
 
                                 </div>
                                 Tranportasi
                                 <div class="input-group mb-3">
 
-                                    <input class="form-control" type="text" value="" name="transportasi"
-                                        id="transfortasi">
+                                    <input class="form-control" type="text" name="transportasi" id="transfortasi"
+                                        value="<?=$baris['transportasi'];?>">
                                 </div>
                                 Makan
                                 <div class="input-group mb-3">
-                                    <input class="form-control" type="text" value="" name="makanan" id="makan">
+                                    <input class="form-control" type="text" name="makanan" id="makan"
+                                        value="<?=$baris['makanan'];?>">
 
                                 </div>
                                 Harga Paket
                                 <div class="input-group mb-3">
                                     <span class="input-group-text" id="basic-addon1">Rp</span>
                                     <input type="text" class="form-control" aria-label="Username"
-                                        aria-describedby="basic-addon1" name="hargapaket" id="hargapaket">
+                                        aria-describedby="basic-addon1" name="hargapaket" id="hargapaket"
+                                        value="<?=$baris['hargapaket'];?>">
                                 </div>
 
                                 Jumlah Tagihan
                                 <div class="input-group mb-3">
                                     <span class="input-group-text" id="basic-addon1">Rp</span>
                                     <input type="text" class="form-control" aria-label="Username"
-                                        aria-describedby="basic-addon1" name="jumlah" id="jumlah">
+                                        aria-describedby="basic-addon1" name="jumlah" id="jumlah"
+                                        value="<?=$baris['jumlah'];?>">
                                 </div>
 
                             </div>

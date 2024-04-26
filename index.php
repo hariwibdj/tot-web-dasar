@@ -34,8 +34,9 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                    <a class="nav-link active" aria-current="page" href="#">Pendaftaran Paket Wisata</a>
-                    <a class="nav-link" href="#">Daftar Pesanan</a>
+                    <a class="nav-link active" aria-current="page" href="form-pemesanan.php">Pendaftaran Paket
+                        Wisata</a>
+                    <a class="nav-link" href="daftar-pesanan.php">Daftar Pesanan</a>
 
                 </div>
             </div>

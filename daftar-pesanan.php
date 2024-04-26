@@ -25,17 +25,20 @@
         </div>
     </header>
 
-    <nav class="container navbar navbar-expand-lg bg-body-tertiary">
+    <nav class="container navbar navbar-expand-lg navbar-light bg-light">
+        <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light"> -->
+
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">Beranda</a>
+            <a class="nav-link" href="index.php">Beranda</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
                 aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                    <a class="nav-link active" aria-current="page" href="#">Pendaftaran Paket Wisata</a>
-                    <a class="nav-link" href="#">Daftar Pesanan</a>
+                    <a class="nav-link active" aria-current="page" href="form-pemesanan.php">Pendaftaran Paket
+                        Wisata</a>
+                    <a class="navbar-brand" href="daftar-pesanan.php">Daftar Pesanan</a>
 
                 </div>
             </div>
@@ -43,92 +46,60 @@
 
     <main class="container border">
         <div class="row justify-content-center">
-            <div class="col-md-8 mt-5">
+            <div class="col-md-12 mt-5">
                 <div class="row">
-                    <h1>Form Pemesanan Paket Wisata</h1>
-                    <form action="" method="post">
+                    <h1>Daftar Pesanan Paket Wisata</h1>
 
-                        <div class="col-md-12">
-                            <div class="mb-3">
-                                <label for="namapemesan" class="form-label">Nama Pemesan</label>
-                                <input type="text" class="form-control" id="namapemesan">
-                            </div>
+                    <table class="table table-hover">
+                        <tr>
+                            <th>No</th>
+                            <th>Nama</th>
+                            <th>No. HP</th>
+                            <th>Tanggal</th>
+                            <th>Durasi</th>
+                            <th>Harga Paket</th>
+                            <th>Penginapan</th>
+                            <th>Transportasi</th>
+                            <th>Makanan</th>
+                            <th>Jumlah</th>
+                            <th>Aksi</th>
+                        </tr>
+                        <?php
+                        include "include/koneksi.php";
+                        $sql = "select * from pemesanan";
+                        $que = mysqli_query($sambungan, $sql);//eksekusi perintah $sql
+                        $no = 1;
+                        while ($data=mysqli_fetch_array($que)) 
+                        { ?>
 
-                            <div class="mb-3">
-                                <label for="nomorhp" class="form-label">Nomor HP</label>
-                                <input type="text" class="form-control" id="nomorhp">
-                            </div>
-                            <div class="mb-3">
-                                <label for="tanggalpemesanan" class="form-label">Tanggal Pemesananan</label>
-                                <input type="date" class="form-control" id="tanggalpemesanan">
-                            </div>
-                            Durasi Perjalanan
-                            <div class="input-group mb-3">
+                        <tr>
+                            <td><?=$no;?></td>
+                            <td><?=$data['nama'];?></td>
+                            <td><?=$data['nohp'];?></td>
+                            <td><?=$data['tanggal'];?></td>
+                            <td><?=$data['durasi'];?></td>
+                            <td><?=$data['hargapaket'];?></td>
+                            <td><?=$data['penginapan'];?></td>
+                            <td><?=$data['transportasi'];?></td>
+                            <td><?=$data['makanan'];?></td>
+                            <td><?=$data['jumlah'];?></td>
+                            <td><a href="ubah-data.php?id=<?=$data['id']; ?>" class="btn btn-primary">ubah</a><a
+                                    href="hapus-data.php?id=<?=$data['id']; ?>" class="btn btn-danger">hapus</a></td>
+                        </tr>
+                        <?php
+                            $no++;
+                        }
+                            ?>
 
-                                <input type="text" class="form-control" aria-label="Recipient's username"
-                                    aria-describedby="basic-addon2">
-                                <span class="input-group-text" id="basic-addon2">hari</span>
-                            </div>
-
-                            Jumlah Peserta
-                            <div class="input-group mb-3">
-
-                                <input type="text" class="form-control" aria-label="Recipient's username"
-                                    aria-describedby="basic-addon2">
-                                <span class="input-group-text" id="basic-addon2">Orang</span>
-                            </div>
-
-                            <div class="mb-3">
-                                <label for="pelayananpaket" class="form-label">Pelayanan Paket
-                                    Perjalanan</label>
-
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                    <label class="form-check-label" for="flexCheckDefault">
-                                        Penginapan (Rp.1.000.000)
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                    <label class="form-check-label" for="flexCheckDefault">
-                                        Transfortasi (Rp.1.000.000)
-                                    </label>
-                                </div>
-
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                    <label class="form-check-label" for="flexCheckDefault">
-                                        Makanan (Rp.1.000.000)
-                                    </label>
-                                </div>
-                                Harga Paket
-                                <div class="input-group mb-3">
-                                    <span class="input-group-text" id="basic-addon1">Rp</span>
-                                    <input type="text" class="form-control" aria-label="Username"
-                                        aria-describedby="basic-addon1">
-                                </div>
-
-                                Jumlah Tagihan
-                                <div class="input-group mb-3">
-                                    <span class="input-group-text" id="basic-addon1">Rp</span>
-                                    <input type="text" class="form-control" aria-label="Username"
-                                        aria-describedby="basic-addon1">
-                                </div>
-
-                            </div>
-
-                            <button class="btn btn-primary">simpan</button>
-                            <button class="btn btn-info">Hitung</button>
-                            <button class="btn btn-danger">Reset</button>
-
-                        </div>
+                    </table>
 
 
-                    </form>
+
+
 
                 </div>
             </div>
-            <div class="col-md-4 mt-5">
+            <!-- <div class="col-md-4 mt-5">
 
                 <div class="card  m-auto mb-3" style="width: 18rem">
 
@@ -179,11 +150,11 @@
                         </iframe>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
     </main>
 
-    <footer class="container bg-primary text-white">
+    <footer class="container bg-primary text-white mt-5">
         <div class="row">
             <div class="col-12 py-4">&copy; <?php echo date("Y");?> TOT Web Dasar</div>
         </div>
